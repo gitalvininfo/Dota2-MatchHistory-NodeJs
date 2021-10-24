@@ -12,7 +12,24 @@ app.use(function (req, res, next) {
 
 
 app.get('/matchHistory', (req, res) => {
-    axios.get(`https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/?key=${steam.API_KEY}&matches_requested=10&account_id=76561199037162545`)
+    const steamId = req.query.steamId;
+    axios.get(`https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/?key=${steam.API_KEY}&matches_requested=10&account_id=${steamId}`)
+        .then(response => {
+            res.json({
+                "status": 200,
+                "message": "SUCCESS",
+                "data": response.data
+            })
+        })
+        .catch(error => {
+            // console.log(error);
+        });
+})
+
+
+app.get('/matchDetails', (req, res) => {
+    const matchId = req.query.matchId;
+    axios.get(`https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/V001/?match_id=${matchId}&key=${steam.API_KEY}`)
         .then(response => {
             res.json({
                 "status": 200,

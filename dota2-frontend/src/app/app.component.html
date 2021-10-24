@@ -49,38 +49,7 @@
     </nav>
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="min-height: 100vh;">
-      <div
-        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Recent 10 Games</h1>
-      </div>
-
-
-      <div class="table-responsive">
-        <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th scope="col">Match Id</th>
-              <th scope="col">Lobby Type</th>
-              <th scope="col">Match Sequence No</th>
-              <th scope="col">Start Time</th>
-              <th scope="col">Heroes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let match of matchHistory">
-              <td>{{match.match_id}}</td>
-              <td>{{match.lobby_type}}</td>
-              <td>{{match.match_seq_num}}</td>
-              <td>{{match.start_time}}</td>
-              <td>
-                <span *ngFor="let player of match.players">
-                  <img src="http://cdn.dota2.com/apps/dota2/images/heroes/{{player.hero_img}}_sb.png">
-                </span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <router-outlet></router-outlet>
     </main>
   </div>
 </div>

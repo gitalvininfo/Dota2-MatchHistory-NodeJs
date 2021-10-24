@@ -11,8 +11,12 @@ export class MatchHistoryService {
 
   constructor(private http: HttpClient) { }
 
-  getMatchHistory(): Promise<any> {
-    return this.http.get(`${this.API_URL}/matchHistory`).toPromise();
+  getMatchHistory(steamId: string): Promise<any> {
+    return this.http.get(`${this.API_URL}/matchHistory?steamId=${steamId}`).toPromise();
+  }
+
+  getMatchDetails(matchId: string): Promise<any> {
+    return this.http.get(`${this.API_URL}/matchDetails?matchId=${matchId}`).toPromise();
   }
 
   getHeroes(): Promise<any> {

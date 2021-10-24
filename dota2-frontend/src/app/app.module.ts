@@ -4,15 +4,21 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { MatchDetailsComponent } from './match-details/match-details.component';
+import { MatchHistoryComponent } from './match-history/match-history.component'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MatchDetailsComponent,
+    MatchHistoryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
